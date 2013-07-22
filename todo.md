@@ -1,4 +1,8 @@
-[ ] Make lib
-[ ] Make cli-bin
-[ ] Make use marky mark?
-[ ] Include tests
+- [ ] Make lib
+- [ ] Make cli-bin
+- [x] Make use jsYaml-front-matter
+- [ ] Include tests
+- [x] Read filename from cli
+- [x] Read template from cli
+- [ ] Read template from json?
+- [ ] Option to specify output cli

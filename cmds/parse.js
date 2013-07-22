@@ -5,31 +5,39 @@ module.exports = function (program) {
 	var coffee = require('coffee-script');
 	var extend = require('node.extend');
 	var yaml = require('js-yaml');
+	var jsYaml = require('yaml-front-matter');
 
 	program
-		.command('parse')
+		.command('parse sourcefile templatefile')
 		.version('0.0.0')
+		// Todo: filename
+		// Todo: output option
+		// Todo: template option
 		.description('')
-		.action(function(){
-			// Your code goes here
-
+		.action(function(src, tmp){
+			//console.log(src, tmp);
+	
 			// Read file ane templates
-			var template = fs.readFileSync(path.join(process.cwd(), '/test.json'), 'utf8');
-			var base = require("../test.yml");
+			var template = fs.readFileSync(path.join(process.cwd(), tmp), 'utf8');
+			var source = jsYaml.loadFront(path.join(process.cwd(), src));
 
 			// Add to global boject
-			global.base = base;
+			global.base = source;
 
 			// process template use cson for flexibility
 			template = coffee.eval(template);
 
 			// Extend back into base
-			base = extend(base, template);
+
+			var processed = extend(source, template);
+
+			var content = processed.__content;
+			delete processed.__content;
 
 			// Convert to yaml
-			var y = yaml.dump(base);
+			var y = yaml.dump(processed);
 
-			console.log(y);
+			console.log('---\n'+y+'---'+content);
 			
 		});
 	
