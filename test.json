@@ -1,0 +1,6 @@
+{
+  name: base.basename,
+  description: base.basename,
+  value: base.value*10,
+  version: "0.0.0"
+}
