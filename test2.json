@@ -1,0 +1,13 @@
+exports = {}
+
+exports.name = base.basename
+exports.description = base.basename
+exports.value = base.value*10
+exports.version = "0.0.0"
+exports.new = base.old
+exports.missing = base.missing
+exports.array = base.array.concat([4])
+exports.fun = () -> "friday"
+exports.length = base.__content.length
+
+exports

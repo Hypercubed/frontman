@@ -28,14 +28,14 @@ module.exports = function (program) {
 			template = coffee.eval(template);
 
 			// Extend back into base
+			//var processed = extend(source, template);
 
-			var processed = extend(source, template);
+			var content = base.__content;
+			//delete base.__content;
 
-			var content = processed.__content;
-			delete processed.__content;
 
 			// Convert to yaml
-			var y = yaml.dump(processed);
+			var y = yaml.dump(template);
 
 			console.log('---\n'+y+'---'+content);
 			

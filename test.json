@@ -1,6 +1,14 @@
 {
+  dir: __dirname
+  file: __filename
   name: base.basename,
   description: base.basename,
   value: base.value*10,
-  version: "0.0.0"
+  version: "0.0.0",
+  new: base.old
+  old: null
+  missing: base.missing
+  array: base.array.concat([4])
+  fun: () -> "friday"
+  length: base.__content.length
 }

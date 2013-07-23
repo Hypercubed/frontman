@@ -6,3 +6,5 @@
 - [x] Read template from cli
 - [ ] Read template from json?
 - [ ] Option to specify output cli
+- [ ] Batch process with globbing (parse -t template.json *.md)
+- [ ] How to delete deprecated elements
