@@ -1,0 +1,27 @@
+{
+  "name": "frontman",
+  "version": "0.0.0",
+  "description": "Manage yaml frontmatter using cson from the command line",
+  "main": "index.js",
+  "bin": {
+    "frontman": "./bin/frontman"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Hypercubed/frontman.git"
+  },
+  "author": "J. Harshbarger",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "b04d4a97b5adbce839078e9981e98f6e09a6fab9",
+  "dependencies": {
+    "coffee-script": "~1.6.3",
+    "yaml-front-matter": "~1.0.3",
+    "js-yaml": "~2.1.0",
+    "node.extend": "~1.0.7",
+    "commander": "~2.0.0"
+  }
+}

@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+// node
+var path			= require('path');
+
+// need to `npm link autocmdr`
+var program  = require('commander');
+
+// Local
+var frontman = require('../lib/frontman.js');
+
+program._name = "frontman";
+
+program
+	.version('0.0.0')
+	.usage('[options] filename')
+	.option('-t, --template <file>', 'Path to template file')
+	.option('-e, --extend', 'Indicate that cson should extend the base yaml')
+	.option('-j, --to-json', 'Output JSON insteand to yaml with front matter')
+	//.option('-o, --output <file>', 'File to output')
+	.parse(process.argv);
+
+if (program.args.length < 1 )
+	frontman.render({}, program);
+
+program.args.forEach(function(filename) {
+	frontman.render(filename, program);
+});
+

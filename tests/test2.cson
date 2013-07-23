@@ -9,5 +9,6 @@ exports.missing = base.missing
 exports.array = base.array.concat([4])
 exports.fun = () -> "friday"
 exports.length = base.__content.length
+exports.__content = base.__content
 
 exports

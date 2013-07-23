@@ -1,0 +1,6 @@
+{
+	title: "title"
+	date: new Date()
+	source: __filename
+	__content: "\nYour content here"
+}
