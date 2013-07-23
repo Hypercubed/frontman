@@ -5,29 +5,29 @@ WIP!!! -- Manage yaml frontmatter using cson from the command line --- like a bo
 
 # Usage
 
-1. Add yaml front matter to an existing file using a cson template
+1. Add front matter on an existing file using a cson template.
 
-`frontman {filename} -t {template} > {outputfile}`
+    `frontman {filename} -t {template}`
+    
+2. Replace front matter on an existing file using a cson template.
 
-2. Add yaml front matter to an existing file, preserving the existing front matter
+    `frontman {filename} -t {template} -r`
 
-`frontman {filename} -t {template} -e > {outputfile}`
+3. Add front matter to an existing file, output json
 
-3. Add yaml front matter to an existing file, preserving the existing front matter, output json
+    `frontman {filename} -t {template} -j`
 
-`frontman {filename} -t {template} -e -j > {outputfile}`
+4. Create a new file using a cson template
 
-3. Create a new file using a cson template
+    `frontman -t {template}`
 
-`frontman -t {template} > {outputfile}`
+5. Convert an existing file to json
 
-4. Convert an existing file to json
-
-`frontman {filename} -e -j  > {outputfile}`
+    `frontman {filename} -j`
 
 # Templates
 
-Templates are cson files returning a single json object that will be merged with or replace the existing yaml in the input file.  If `-r` is specified in the json object from the cson template will replace all yaml-front-matter that is not explicitily referenced in the template is process, otherwise the data is merged.  In eather case the base yaml data is availabe to teh cson template using @base.
+Templates are cson files returning a single json object that will be merged with or replace the existing yaml front matter in the input file.  If `-r` is specified in the json object from the cson template will replace all yaml-front-matter that is not explicitly referenced in the template.  Without the `-r` flag data in the json object is added to existing values.  In either case the base yaml data is available to the cson template using @base.
 
 # Examples
 
