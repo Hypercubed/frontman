@@ -1,16 +1,17 @@
 
-# Tests
-- [ ] frontman tests/test_with_content.md
-- [ ] frontman tests/test_with_content.md -t tests/template_using_base.cson
-- [ ] frontman tests/test_with_content.md -t tests/template_using_base.cson -j
-- [ ] frontman tests/test_with_content.md -t tests/template_using_base.cson -r
-- [ ] frontman tests/test_with_content.md -t tests/template_using_base.cson -j -r
-- [ ] frontman tests/test_with_content.md -t tests/template_using_base_alternative.cson
-- [ ] frontman tests/test_with_content.md -t tests/template_no_base.cson -r
-- [ ] frontman tests/test_without_content.md
-- [E] frontman tests/test_only_content.md
-- [E] frontman tests/test_only_content.md -r
-- [E] frontman tests/test_only_yaml.md
+- [ ] Tests
+- frontman tests/test_with_content.md
+- frontman tests/test_with_content.md -r
+- frontman tests/test_with_content.md -t tests/template_using_base.cson
+- frontman tests/test_with_content.md -t tests/template_using_base.cson -j
+- frontman tests/test_with_content.md -t tests/template_using_base.cson -r
+- frontman tests/test_with_content.md -t tests/template_using_base.cson -j -r
+- frontman tests/test_with_content.md -t tests/template_using_base_alternative.cson
+- frontman tests/test_with_content.md -t tests/template_no_base.cson -r
+- frontman tests/test_without_content.md
+- frontman tests/test_only_content.md
+- frontman tests/test_only_content.md -t tests/template_no_base.cson
+- (fix) frontman tests/test_only_yaml.yml
 
 # Todo
 - [ ] Make lib
@@ -25,5 +26,8 @@
 - [ ] How to delete deprecated elements
 - [ ] Yaml+eco based templates?
 - [ ] Change name of @base?
-
+- [ ] Fix trimming
+- [ ] stdin
+- [ ] supply templae as tring in command line
+- [ ] output directory
 
