@@ -15,7 +15,7 @@ program
 	.version('0.0.0')
 	.usage('[options] filename')
 	.option('-t, --template <file>', 'Path to template file')
-	.option('-e, --extend', 'Indicate that cson should extend the base yaml')
+	.option('-r, --replace', 'Indicate that cson should replace the base yaml')
 	.option('-j, --to-json', 'Output JSON insteand to yaml with front matter')
 	//.option('-o, --output <file>', 'File to output')
 	.parse(process.argv);

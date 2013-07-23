@@ -23,11 +23,11 @@ WIP!!! -- Manage yaml frontmatter using cson from the command line --- like a bo
 
 4. Convert an existing file to json
 
-`frontman {filename} -j  > {outputfile}`
+`frontman {filename} -e -j  > {outputfile}`
 
 # Templates
 
-Templates are cson files.  The base file can be referenceed using @base.  If `-e` is specified in th command line then only the yaml-front-matter that is explicitily referenced in the template is process.
+Templates are cson files returning a single json object that will be merged with or replace the existing yaml in the input file.  If `-r` is specified in the json object from the cson template will replace all yaml-front-matter that is not explicitily referenced in the template is process, otherwise the data is merged.  In eather case the base yaml data is availabe to teh cson template using @base.
 
 # Examples
 

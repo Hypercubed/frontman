@@ -1,10 +1,18 @@
 
 # Tests
-- [ ] bin parse filename -e -j
-- [ ] bin parse filename -e
-- [ ] bin parse filename -t test.cson -e
-- [ ] bin parse filename -t test2.cson
+- [ ] frontman tests/test_with_content.md
+- [ ] frontman tests/test_with_content.md -t tests/template_using_base.cson
+- [ ] frontman tests/test_with_content.md -t tests/template_using_base.cson -j
+- [ ] frontman tests/test_with_content.md -t tests/template_using_base.cson -r
+- [ ] frontman tests/test_with_content.md -t tests/template_using_base.cson -j -r
+- [ ] frontman tests/test_with_content.md -t tests/template_using_base_alternative.cson
+- [ ] frontman tests/test_with_content.md -t tests/template_no_base.cson -r
+- [ ] frontman tests/test_without_content.md
+- [E] frontman tests/test_only_content.md
+- [E] frontman tests/test_only_content.md -r
+- [E] frontman tests/test_only_yaml.md
 
+# Todo
 - [ ] Make lib
 - [ ] Make cli-bin
 - [x] Make use jsYaml-front-matter
