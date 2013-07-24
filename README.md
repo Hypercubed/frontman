@@ -35,7 +35,7 @@ Warning... this is a work in progress.  The usage is changing rapidly.  I'm stil
 
 # Templates
 
-Templates are text files containing front-matter and/or content that will be merged with or replace the existing front-matter and/or content in the input file.  If the `-r` flag is specified the front-matter from the template will replace all front-matter in the base file.  Without the `-r` flag data in the front-matter is added to existing values in the base file.  If the template (or base file) is a cson file (as determined by the file extension) the code in the cson file is executed.  If the template file is a cson file the base file variables are available to the template using @base and the content is available as @base.__content.  See the examples below.
+Templates are text files containing front-matter and/or content that will be merged with or replace the existing front-matter and/or content in the input file.  If the `-r` flag is specified the front-matter from the template will replace all front-matter in the base file.  Without the `-r` flag data in the front-matter is added to existing values in the base file.  If the template (or base file) is a cson file (as determined by the file extension) the code in the cson file is executed.  If the template file is a cson file the base file variables are available to the template using `@base` and the content is available as `@base.__content`.  See the examples below.
 
 ## Examples
 
