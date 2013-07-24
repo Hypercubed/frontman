@@ -3,7 +3,7 @@ frontman
 
 WIP!!! -- Manage yaml frontmatter using cson from the command line --- like a boss
 
-# Usage
+## Usage
 
 1. Add front matter on an existing file using a cson template.
 
@@ -29,7 +29,27 @@ WIP!!! -- Manage yaml frontmatter using cson from the command line --- like a bo
 
 Templates are cson files returning a single json object that will be merged with or replace the existing yaml front matter in the input file.  If `-r` is specified in the json object from the cson template will replace all yaml-front-matter that is not explicitly referenced in the template.  Without the `-r` flag data in the json object is added to existing values.  In either case the base yaml data is available to the cson template using @base.
 
-# Examples
+## Examples
+
+1. Adding or replacing front matter:
+
+    ```
+    {
+        title: "title"
+    	date: new Date()
+    }
+    ```
+    
+2. Modifing front matter:
+
+    ```
+    {
+      name: @base.basename,
+      description: @base.basename,
+      value: @base.value*10,
+    }
+    ```
+
 
 # License
 MIT
