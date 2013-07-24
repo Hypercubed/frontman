@@ -1,4 +1,3 @@
-
 - [ ] Tests
 - frontman tests/test_with_content.md
 - frontman tests/test_with_content.md -r
@@ -11,6 +10,7 @@
 - frontman tests/test_without_content.md
 - frontman tests/test_only_content.md
 - frontman tests/test_only_content.md -t tests/template_no_base.cson
+- frontman -t tests/template_no_base.cson
 - (fix) frontman tests/test_only_yaml.yml
 
 # Todo
@@ -30,4 +30,4 @@
 - [ ] stdin
 - [ ] supply templae as tring in command line
 - [ ] output directory
-
+- [ ] find command?
