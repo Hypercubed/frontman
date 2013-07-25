@@ -1,0 +1,15 @@
+## This is a template to transform existing yaml
+## It should end with a json object
+
+{
+  dir: @document.__dirname
+  file: @document.__basename
+  name: @document.basename,
+  description: @document.basename,
+  value: @document.value*10,
+  new: @document.old
+  missing: @document.missing
+  array: @document.array.concat([4])
+  fun: () -> "friday"
+  length: @document.__content.length
+}

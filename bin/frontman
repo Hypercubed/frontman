@@ -15,8 +15,10 @@ program
 	.version('0.0.0')
 	.usage('[options] filename')
 	.option('-t, --template <file>', 'Path to template file')
-	.option('-r, --replace', 'Indicate that cson should replace the base yaml')
-	.option('-j, --to-json', 'Output JSON insteand to yaml with front matter')
+	.option('-r, --replace', 'Indicate that the template should replace the base')
+	.option('-j, --to-json', 'Output JSON')
+	.option('-c, --to-cson', 'Output CSON')
+	.option('-y, --to-yaml', 'Output YAML')
 	//.option('-o, --output <file>', 'File to output')
 	.parse(process.argv);
 
@@ -27,6 +29,15 @@ if (files.length < 1 )
 
 // TODO: Handle directories
 files.forEach(function(filename) {
-	frontman.render(filename, program);
+	var processed = frontman.render(filename, program);
+
+	if (program.output) {
+		fs.writeFile(program.output, processed, function (err) {
+		  if (err) throw err;
+		  console.log('It\'s saved!');
+		});
+	} else {
+		console.log(processed);
+	}
 });
 

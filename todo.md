@@ -1,33 +1,30 @@
-- [ ] Tests
-- frontman tests/test_with_content.md
-- frontman tests/test_with_content.md -r
-- frontman tests/test_with_content.md -t tests/template_using_base.cson
-- frontman tests/test_with_content.md -t tests/template_using_base.cson -j
-- frontman tests/test_with_content.md -t tests/template_using_base.cson -r
-- frontman tests/test_with_content.md -t tests/template_using_base.cson -j -r
-- frontman tests/test_with_content.md -t tests/template_using_base_alternative.cson
-- frontman tests/test_with_content.md -t tests/template_no_base.cson -r
-- frontman tests/test_without_content.md
-- frontman tests/test_only_content.md
-- frontman tests/test_only_content.md -t tests/template_no_base.cson
-- frontman -t tests/template_no_base.cson
-- (fix) frontman tests/test_only_yaml.yml
+# Priority
+- [ ] Update documentation with @document
+- [ ] Option to specify output directory
+- [ ] Batch process with globbing (parse -t template.json *.md)
+- [ ] How to delete an element
+
+# Tests
+- [x] frontman tests/test.md
+- [x] frontman tests/test.md -t tests/template.cson
+- [x] frontman tests/test.md -t tests/template.cson -r
+- [x] frontman tests/test.md -j
+- [x] frontman tests/test.md -y
+- [x] frontman tests/test.md -c
+- [x] frontman tests/test.md -t tests/template.json
 
 # Todo
-- [ ] Make lib
-- [ ] Make cli-bin
+- [x] Make lib
+- [x] Make cli-bin
 - [x] Make use jsYaml-front-matter
-- [ ] Include tests
+- [x] Include tests
 - [x] Read filename from cli
 - [x] Read template from cli
-- [ ] Read template from json?
-- [ ] Option to specify output cli
-- [ ] Batch process with globbing (parse -t template.json *.md)
-- [ ] How to delete deprecated elements
+- [x] Read template from json?
 - [ ] Yaml+eco based templates?
-- [ ] Change name of @base?
+- [x] Change name of @base?
 - [ ] Fix trimming
 - [ ] stdin
-- [ ] supply templae as tring in command line
-- [ ] output directory
 - [ ] find command?
+- [ ] preserve !<tag:yaml.org,2002:js/function> tags?
+- [ ] option to protect content (prevent template from altering base content)
