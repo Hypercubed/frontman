@@ -2,11 +2,10 @@
 ## It should end with a json object
 
 {
-  dir: @document.__dirname
   file: @document.__basename
-  name: @document.basename,
-  description: @document.basename,
-  value: @document.value*10,
+  name: @document.name
+  description: @document.name
+  value: @document.value*10
   new: @document.old
   missing: @document.missing
   array: @document.array.concat([4])

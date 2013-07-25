@@ -1,8 +1,10 @@
 # Priority
-- [ ] Update documentation with @document
+- [x] Update documentation with @document
 - [ ] Option to specify output directory
-- [ ] Batch process with globbing (parse -t template.json *.md)
+- [ ] Read input from stdin
+- [ ] Batch process a directory (parse -t template.json -d src/*.md -o out/)
 - [ ] How to delete an element
+- [ ] SafeFS
 
 # Tests
 - [x] frontman tests/test.md
@@ -22,9 +24,9 @@
 - [x] Read template from cli
 - [x] Read template from json?
 - [ ] Yaml+eco based templates?
+- [ ] json based front matter block?
 - [x] Change name of @base?
 - [ ] Fix trimming
-- [ ] stdin
-- [ ] find command?
+- [ ] find/grep command?
 - [ ] preserve !<tag:yaml.org,2002:js/function> tags?
-- [ ] option to protect content (prevent template from altering base content)
+- [ ] option to protect content (prevent template from altering base content, default?)

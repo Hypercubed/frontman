@@ -1,6 +1,7 @@
 ---
-dir: "C:\\Users\\jayson\\workspace\\node\\frontman\\test\\src"
 file: test.md
+name: test
+description: test
 value: 100
 new: oldvalue
 array: 
