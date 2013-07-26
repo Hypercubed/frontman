@@ -21,11 +21,11 @@ Warning... this is a work in progress.  The usage is changing rapidly.  I'm stil
 
     `frontman {filename} -t {template} -j`
 
-4. *Convert and existing file.*  This is useful for converting a file to a front-matter file (or json, cson, or yaml file) or creating a new file based on a template.  If the source is a cson file the code is processed.  Other file types are simply converted to a file containing a front-matter block.
+4. *Convert an existing file or creating a new file based on a template.*  This is useful for converting a file to a front-matter file (or json, cson, or yaml file) or creating a new file based on a template.  If the source is a cson file the code is processed.  Other file types are simply converted to a file containing a front-matter block.
 
     `frontman {filename}`
 
-5. Remove front matter.  Since no template file is supplied and the replace flag is set the resulting output will be the content from the source file without front matter.
+5. *Remove front matter.*  Since no template file is supplied and the replace flag is set the resulting output will be the content from the source file without front matter.
 
     `frontman {filename} -r`
 
@@ -55,7 +55,19 @@ Templates are text files containing front-matter meta data and/or content that w
       length: @document.__content.length
     }
     ```
+    
+3. Templating a new file (this is a cson file, only cson files can call functions such as `Date()`):
 
+    ```
+    {
+      title: "Title Here"
+      description: ""
+      date: new Date()
+      tags: [ 'post' ]
+      layout: 'post'
+      __content: "Your content here"
+    }
+    ```
 
 # License
 MIT
