@@ -1,0 +1,8 @@
+{
+  title: "Title Here"
+  description: ""
+  date: new Date()
+  tags: [ 'post' ]
+  layout: 'post'
+  __content: "Your content here"
+}

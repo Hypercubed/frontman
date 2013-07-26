@@ -13,6 +13,9 @@
     "type": "git",
     "url": "git://github.com/Hypercubed/frontman.git"
   },
+  "bugs": {
+    "url": "https:////github.com/Hypercubed/frontman/issues"
+  },
   "author": "J. Harshbarger",
   "license": "MIT",
   "readmeFilename": "README.md",
@@ -23,7 +26,9 @@
     "js-yaml": "~2.1.0",
     "node.extend": "~1.0.7",
     "commander": "~2.0.0",
-    "cson": "~1.4.2"
+    "cson": "~1.4.2",
+    "envfile": "~1.0.0",
+    "mkdirp": "~0.3.5"
   },
   "devDependencies": {
     "mocha": "~1.12.0"

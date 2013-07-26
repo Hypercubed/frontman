@@ -1,10 +1,11 @@
 # Priority
 - [x] Update documentation with @document
-- [ ] Option to specify output directory
+- [x] Option to specify output directory
 - [ ] Read input from stdin
-- [ ] Batch process a directory (parse -t template.json -d src/*.md -o out/)
+- [x] Batch process a directory (parse -t template.json -d src/*.md -o out/)
 - [ ] How to delete an element
 - [ ] SafeFS
+- [ ] autocmdr in package.js
 
 # Tests
 - [x] frontman tests/test.md
@@ -30,3 +31,4 @@
 - [ ] find/grep command?
 - [ ] preserve !<tag:yaml.org,2002:js/function> tags?
 - [ ] option to protect content (prevent template from altering base content, default?)
+- [ ] Clean API

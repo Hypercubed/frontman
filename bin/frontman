@@ -2,42 +2,76 @@
 
 // node
 var path			= require('path');
+var fs = require('fs');
+var mkdirp = require('mkdirp');
 
-// need to `npm link autocmdr`
-var program  = require('commander');
+
+var program  = require('autocmdr');
+
+// autocmdr plugins
+require('autocmdr/lib/logger.js')(program);
+require('autocmdr/lib/package.js')(program);
 
 // Local
 var frontman = require('../lib/frontman.js');
 
-program._name = "frontman";
-
 program
-	.version('0.0.0')
 	.usage('[options] filename')
 	.option('-t, --template <file>', 'Path to template file')
 	.option('-r, --replace', 'Indicate that the template should replace the base')
 	.option('-j, --to-json', 'Output JSON')
 	.option('-c, --to-cson', 'Output CSON')
 	.option('-y, --to-yaml', 'Output YAML')
-	//.option('-o, --output <file>', 'File to output')
+	.option('-o, --output <dir>', 'Output directory')
 	.parse(process.argv);
 
 var files = program.args;
 
-if (files.length < 1 )
+if (files.length < 1 ) // TODO: fix this
 	frontman.render({}, program);
 
-// TODO: Handle directories
-files.forEach(function(filename) {
-	var processed = frontman.render(filename, program);
+if (program.template)  // Read template once, but don't process yet
+	var template = frontman._readFile( path.join(process.cwd(), program.template));
+
+files.forEach(function(filename) {  // TODO: Move this to lib?
+	//console.log(filename);
+	var infile = path.join(process.cwd(), filename);
+
+	var source = frontman._readFile( infile );
+
+	var resultObject = frontman._process(source, template, program);
+
+	var _opts = {};
+	if (program.toJson) _opts.type = "json";
+	if (program.toCson) _opts.type = "cson";
+	if (program.toYaml) _opts.type = "yml";
+
+	var result = frontman.stringify(resultObject, _opts.type );	
+
+	//console.log(result);
 
 	if (program.output) {
-		fs.writeFile(program.output, processed, function (err) {
-		  if (err) throw err;
-		  console.log('It\'s saved!');
-		});
+		var outpath = path.join(process.cwd(), program.output);
+
+		var isDir = outpath[outpath.length-1] == '\\' || outpath[outpath.length-1] == '/';  // TODO: Need a better method
+		isDir = isDir || fs.statSync(outpath).isDirectory();
+
+		var basename = path.basename(infile);
+
+		if (isDir) {
+			mkdirp.sync(outpath);
+			outpath = path.join(outpath, basename);
+		}
+
+		// flatten?
+		// Change extension
+
+		program.logger.info('Writing ', outpath);
+
+		fs.writeFile( outpath, result );
 	} else {
-		console.log(processed);
+		console.log(result);
 	}
+
 });
 

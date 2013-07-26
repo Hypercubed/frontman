@@ -19,47 +19,50 @@ describe('API Test with content', function(){
                 value: 10,
                 old: 'oldvalue',
                 array: [ 1, 2, 3 ],
-                __content: '\r\nNow with content!!!' 
+                __content: '\r\nNow with content!!!',
+                __basename: 'test.md',
+                __dirname: './test/src'
             };
 
-        var obj = frontman.readFile(filename);
+        var obj = frontman._readFile(filename);
+        obj = frontman._process(obj);
 
         assert.deepEqual(obj, expectedObj);
     });
 
     it('should render yfm to YFM', function(){
         var expected =  fs.readFileSync("./test/expected/test.md").toString()
-        assert.equal(frontman.render(filename)+"\n", expected);
+        assert.equal(frontman.renderFile(filename)+"\n", expected);
     });
 
     it('should render yfm to json', function(){
         var expected =  fs.readFileSync("./test/expected/test.json").toString();
-        assert.equal(frontman.render(filename, { toJson: true })+"\n", expected);
+        assert.equal(frontman.renderFile(filename, { toJson: true })+"\n", expected);
     });
 
     it('should render yfm to yml', function(){
         var expected = fs.readFileSync("./test/expected/test.yml").toString();
-    	assert.equal(frontman.render(filename, { toYaml: true })+"\n", expected);
+    	assert.equal(frontman.renderFile(filename, { toYaml: true })+"\n", expected);
     });
 
     it('should render yfm to cson', function(){
         var expected = fs.readFileSync("./test/expected/test.cson").toString();
-    	assert.equal(frontman.render(filename, { toCson: true })+"\n", expected);
+    	assert.equal(frontman.renderFile(filename, { toCson: true })+"\n", expected);
     });
 
     it('should render yfm with json template', function(){
         var expected = fs.readFileSync("./test/expected/test_json.md").toString();
-    	assert.equal(frontman.render(filename, { template: "./test/src/template.json" })+"\n", expected);
+    	assert.equal(frontman.renderFile(filename, { template: "./test/src/template.json" })+"\n", expected);
     });
 
     it('should render yfm with cson template', function(){
     	var expected = fs.readFileSync("./test/expected/test_cson.md").toString();
-    	assert.equal(frontman.render(filename, { template: "./test/src/template.cson" })+"\n", expected);
+    	assert.equal(frontman.renderFile(filename, { template: "./test/src/template.cson" })+"\n", expected);
     });
 
     it('should render yfm with cson template, and replace', function(){
         var expected = fs.readFileSync("./test/expected/test_cson_replace.md").toString();
-        assert.equal(frontman.render(filename, { template: "./test/src/template.cson", replace: true })+"\n", expected);
+        assert.equal(frontman.renderFile(filename, { template: "./test/src/template.cson", replace: true })+"\n", expected);
     });
 
 });
