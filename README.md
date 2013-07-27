@@ -7,7 +7,11 @@ Frontman is supplied one or more filenames and an option template filename.  Eac
 
 Warning... this is a work in progress.  The usage is changing rapidly.  I'm still discovering new ways to use this.  Feedback is welcome.
 
-## Features and usage
+## Instalation
+
+`npm install -g Hypercubed/frontman`
+
+## Features and command line usage
 
 1. *Add front matter to an existing file using a template.*  Any meta data (or content if present) in the template file will be added to replace meta data in the base file.  Other meta data in the base file will remain untouched.  If the base file or the template file are cson files the code is while reading.
 
@@ -40,7 +44,7 @@ Templates are text files containing front-matter meta data and/or content that w
     ```
     {
       "title": "title",
-    	"date": "12-12-12"
+      "date": "12-12-12"
     }
     ```
     
@@ -68,6 +72,11 @@ Templates are text files containing front-matter meta data and/or content that w
       __content: "Your content here"
     }
     ```
+
+## Try out a live example now
+
+<a href="https://runnable.com/UfNdIppQJxBgAAKk/using-hypercubed-frontman" target="_blank"><img src="https://runnable.com/external/styles/assets/runnablebtn.png" style="width:67px;height:25px;"></a>
+
 
 # License
 MIT
