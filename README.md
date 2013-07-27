@@ -7,7 +7,9 @@ Frontman is supplied one or more filenames and an option template filename.  Eac
 
 Warning... this is a work in progress.  The usage is changing rapidly.  I'm still discovering new ways to use this.  Feedback is welcome.
 
-## Instalation
+[![Gittip donate button](http://badgr.co/gittip/hypercubed.png)](https://www.gittip.com/hypercubed/ "Donate weekly to this project using Gittip")
+
+## Install
 
 `npm install -g Hypercubed/frontman`
 
