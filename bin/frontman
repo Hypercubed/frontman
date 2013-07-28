@@ -2,6 +2,7 @@
 
 // node
 var path			= require('path');
+var fs = require('fs');
 
 // need to `npm link autocmdr`
 var program  = require('commander');
@@ -19,7 +20,7 @@ program
 	.option('-j, --to-json', 'Output JSON')
 	.option('-c, --to-cson', 'Output CSON')
 	.option('-y, --to-yaml', 'Output YAML')
-	//.option('-o, --output <file>', 'File to output')
+	.option('-o, --output <dir>', 'Output directory')
 	.parse(process.argv);
 
 var files = program.args;
@@ -27,17 +28,36 @@ var files = program.args;
 if (files.length < 1 )
 	frontman.render({}, program);
 
-// TODO: Handle directories
+if (program.template) {  // Read template once, but don't process yet
+	var template = frontman._readFile( path.join(process.cwd(), program.template));
+}
+
 files.forEach(function(filename) {
-	var processed = frontman.render(filename, program);
+	//console.log(filename);
+
+	var source = frontman._readFile( path.join(process.cwd(), filename));
+
+	var resultObject = frontman._process(source, template, program);
+
+	var _opts = {};
+	if (program.toJson) _opts.type = "json";
+	if (program.toCson) _opts.type = "cson";
+	if (program.toYaml) _opts.type = "yml";
+
+	var result = frontman.stringify(resultObject, _opts.type );	
+
+	//console.log(result);
 
 	if (program.output) {
-		fs.writeFile(program.output, processed, function (err) {
-		  if (err) throw err;
-		  console.log('It\'s saved!');
-		});
+		//console.log(source);
+
+		// if program.output is directory then use base file name
+		// else use output name
+
+		fs.writeFile( program.output, result )
 	} else {
-		console.log(processed);
+		console.log(result);
 	}
+
 });
 
