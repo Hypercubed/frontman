@@ -8,6 +8,7 @@ Frontman is supplied one or more filenames and an option template filename.  Eac
 Warning... this is a work in progress.  The usage is changing rapidly.  I'm still discovering new ways to use this.  Feedback is welcome.
 
 [![Gittip donate button](http://badgr.co/gittip/hypercubed.png)](https://www.gittip.com/hypercubed/ "Donate weekly to this project using Gittip")
+[![Paypal donate button](http://badgr.co/paypal/donate.png?bg=%23feb13d)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X7KYR6T9U2NHC "One time donation to this project using Paypal")
 
 ## Install
 
