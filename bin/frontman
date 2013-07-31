@@ -18,17 +18,19 @@ program
 	.usage('[options] filename')
 	.option('-t, --template <file>', 'Path to template file')
 	.option('-r, --replace', 'Indicate that the template should replace the base')
+	// --outfmt <format>     The format of the output data. See 'help formats'
+	// -d, --data <JSON>     Input data provided in lieu of a filename
+	//--color               Colorize output
 	.option('-j, --to-json', 'Output JSON')
 	.option('-c, --to-cson', 'Output CSON')
 	.option('-y, --to-yaml', 'Output YAML')
-	.option('-o, --output <dir>', 'Output directory')
+	.option('-o, --output <path>', 'Output directory or file.  If not specified, defaults to stdout.')
 	.parse(process.argv);
 
-var files = program.args;
+var files = program.args;  // TODO: glob each?
 
 if (files.length < 1 ) // TODO: fix this
 	frontman.render({}, program);
-
 
 if (program.template)  // Read template once, but don't process yet
 	var template = frontman._readFile( path.join(process.cwd(), program.template));
