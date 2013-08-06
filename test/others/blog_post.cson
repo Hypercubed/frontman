@@ -1,8 +1,19 @@
+date = new Date()
+
+dd = date.getDate()
+dd =  ('0' + dd) if (dd <= 9)
+
+mm = date.getMonth() + 1
+mm = ('0' + mm) if (mm<=9)
+
+yyyy = date.getFullYear();
+
 {
-  title: "Title Here"
+  title: @document.__basename
   description: ""
-  date: new Date()
+  date: date.toString();
   tags: [ 'post' ]
   layout: 'post'
   __content: "Your content here"
+  __outputdir: yyyy+"/"+mm+"/"+dd
 }

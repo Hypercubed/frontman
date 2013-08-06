@@ -32,3 +32,4 @@
 - [ ] preserve !<tag:yaml.org,2002:js/function> tags?
 - [ ] option to protect content (prevent template from altering base content, default?)
 - [ ] Clean API
+- [ ] env files
