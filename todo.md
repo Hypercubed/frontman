@@ -6,6 +6,9 @@
 - [ ] How to delete an element
 - [ ] SafeFS
 - [ ] autocmdr in package.js
+- [ ] Clean API
+- [ ] Move * code from bin
+- [ ] Add bin/frontmant exec tests
 
 # Tests
 - [x] frontman tests/test.md
@@ -32,4 +35,3 @@
 - [ ] preserve !<tag:yaml.org,2002:js/function> tags?
 - [ ] option to protect content (prevent template from altering base content, default?)
 - [ ] Clean API
-- [ ] env files

@@ -10,6 +10,7 @@ var program  = require('autocmdr');
 // autocmdr plugins
 require('autocmdr/lib/logger.js')(program);
 require('autocmdr/lib/package.js')(program);
+require('autocmdr/lib/config.js')(program);
 
 // Local
 var frontman = require('../lib/frontman.js');
@@ -25,66 +26,73 @@ program
 	.option('-c, --to-cson', 'Output CSON')
 	.option('-y, --to-yaml', 'Output YAML')
 	.option('-o, --output <path>', 'Output directory or file.  If not specified, defaults to stdout.')
-	.parse(process.argv);
+	;
 
-//if (process.argv < 1 )
-//	program.help();
+program
+	.on('*', function() {   // TODO* Move this
 
-var files = program.args;  // TODO: glob each?
+		var files = program.args;  // TODO: glob each?
 
-if (files.length < 1 ) // TODO: fix this
-	files.push('-');
+		if (files.length < 1 ) // TODO: fix this
+			program.outputHelp();
 
-if (program.template)  // Read template once, but don't process yet
-	var template = frontman._readFile( path.join(process.cwd(), program.template));
+		if (program.template)  // Read template once, but don't process yet
+			var template = frontman._readFile( path.join(process.cwd(), program.template));
 
-files.forEach(function(filename) {  // TODO: Move this to lib?
-	//console.log(filename);
-	var infile = path.join(process.cwd(), filename);
+		files.forEach(function(filename) {  // TODO: Move this to lib?
+			//console.log(filename);
+			var infile = path.join(process.cwd(), filename);
 
-	if (filename != '-') {
-		var source = frontman._readFile( infile );  // If file not found, assume new file
-	} else {
-		var source = {};  // TODO: Stdin
-	}
+			if (filename != '-') {
+				var source = frontman._readFile( infile );  // If file not found, assume new file
+			} else {
+				var source = {};  // TODO: Stdin
+			}
 
-	var resultObject = frontman._process(source, template, program);
-	//console.log(resultObject);
+			var resultObject = frontman._process(source, template, program);
+			//console.log(resultObject);
 
-	var _opts = {};
-	if (program.toJson) _opts.type = "json";
-	if (program.toCson) _opts.type = "cson";
-	if (program.toYaml) _opts.type = "yml";
+			var _opts = {};
+			if (program.toJson) _opts.type = "json";
+			if (program.toCson) _opts.type = "cson";
+			if (program.toYaml) _opts.type = "yml";
 
-	if (program.output) {
+			if (program.output) {
 
-		var outpath = path.join(process.cwd(), program.output);
+				var outpath = path.join(process.cwd(), program.output);
 
-		var isDir = outpath[outpath.length-1] == '\\' || outpath[outpath.length-1] == '/';  // TODO: Need a better method
-		isDir = isDir || fs.statSync(outpath).isDirectory();
+				var isDir = outpath[outpath.length-1] == '\\' || outpath[outpath.length-1] == '/';  // TODO: Need a better method
+				isDir = isDir || fs.statSync(outpath).isDirectory();
 
-		if (isDir) {
-			outpath = path.join(outpath, resultObject.__outputdir || "", resultObject.__basename);
-		}
+				if (isDir) {
+					outpath = path.join(outpath, resultObject.__outputdir || "", resultObject.__basename);
+				}
 
-		// flatten?
-		// Change extension?
+				// flatten?
+				// Change extension?
 
-		program.logger.info('Writing ', outpath);
+				program.logger.info('Writing ', outpath);
 
-		var result = frontman.stringify(resultObject, _opts.type );
+				var result = frontman.stringify(resultObject, _opts.type );
 
-		mkdirp.sync(path.dirname(outpath));
+				mkdirp.sync(path.dirname(outpath));
 
-		fs.writeFile(outpath, result, function (err) {
-		  if (err) throw err;
-		  console.log('It\'s saved!');
+				fs.writeFile(outpath, result, function (err) {
+				  if (err) throw err;
+				  console.log('It\'s saved!');
+				});
+
+			} else {
+				var result = frontman.stringify(resultObject, _opts.type );	
+				console.log(result);
+			}
+
 		});
 
-	} else {
-		var result = frontman.stringify(resultObject, _opts.type );	
-		console.log(result);
-	}
+	});
 
-});
+program.parse(process.argv);
+
+if (program.args.length < 1 )
+	program.outputHelp();
 
