@@ -71,7 +71,7 @@ program
 				// flatten?
 				// Change extension?
 
-				program.logger.info('Writing ', outpath);
+				program.log.info('Writing ', outpath);
 
 				var result = frontman.stringify(resultObject, _opts.type );
 
