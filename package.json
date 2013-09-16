@@ -1,34 +1,35 @@
 {
   "name": "frontman",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Manage yaml frontmatter using cson from the command line",
-  "main": "index.js",
+  "main": "lib/frontman.js",
   "bin": {
     "frontman": "./bin/frontman"
   },
   "scripts": {
     "test": "mocha -R spec"
   },
+  "author": {
+    "name": "Jayson Harshbarger",
+    "email": "",
+    "url": "https://github.com/Hypercubed"
+  },
   "repository": {
     "type": "git",
-    "url": "git://github.com/Hypercubed/frontman.git"
+    "url": "https://github.com/Hypercubed/frontman.git"
   },
-  "bugs": {
-    "url": "https://github.com/Hypercubed/frontman/issues"
-  },
-  "author": "J. Harshbarger",
   "license": "MIT",
-  "readmeFilename": "README.md",
-  "gitHead": "b04d4a97b5adbce839078e9981e98f6e09a6fab9",
+  "bugs": "https://github.com/Hypercubed/frontman/issues",
   "dependencies": {
     "coffee-script": "~1.6.3",
     "yaml-front-matter": "~1.0.3",
     "js-yaml": "~2.1.0",
     "node.extend": "~1.0.7",
-    "autocmdr": "git://github.com/Hypercubed/autocmdr#master",
     "cson": "~1.4.2",
     "envfile": "~1.0.0",
-    "mkdirp": "~0.3.5"
+    "mkdirp": "~0.3.5",
+    "commander": "~2.0.0",
+    "autocmdr": "~0.0.4"
   },
   "devDependencies": {
     "mocha": "~1.12.0"
