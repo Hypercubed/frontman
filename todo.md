@@ -5,10 +5,10 @@
 - [x] Batch process a directory (parse -t template.json -d src/*.md -o out/)
 - [ ] How to delete an element
 - [ ] SafeFS
-- [ ] autocmdr in package.js
+- [x] autocmdr in package.js
 - [ ] Clean API
 - [ ] Move * code from bin
-- [ ] Add bin/frontmant exec tests
+- [ ] Add/improve bin/frontman exec tests
 
 # Tests
 - [x] frontman tests/test.md
@@ -30,8 +30,7 @@
 - [ ] Yaml+eco based templates?
 - [ ] json based front matter block?
 - [x] Change name of @base?
-- [ ] Fix trimming
+- [ ] Fix trimming/Make it consistant
 - [ ] find/grep command?
 - [ ] preserve !<tag:yaml.org,2002:js/function> tags?
 - [ ] option to protect content (prevent template from altering base content, default?)
-- [ ] Clean API

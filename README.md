@@ -1,7 +1,8 @@
-frontman
-========
+frontman [![Build Status](https://secure.travis-ci.org/Hypercubed/frontman.png?branch=master)](https://travis-ci.org/Hypercubed/frontman) [![NPM version](https://badge.fury.io/js/frontman.png)](http://badge.fury.io/js/frontman)
+=============
 
 Manage yaml front-matter from the command line --- like a boss
+# Description
 
 Frontman is supplied one or more filenames and an option template filename.  Each file can be of any supported type (plain text, text with a yaml front matter block, yaml files, json files, or cson files).  Frontman will combine meta data and/or content from the template file with meta data and/or content in the base file, writing the results to stdio.  Meta data in the template file will join or replace meta data from the first file.  If the template file is a cson file the base file meta data is available to the template using the `@document` object and the content is available as `@document.__content`.
 
@@ -53,7 +54,7 @@ Templates are text files containing front-matter meta data and/or content that w
     
 2. Modifying front matter (this is a cson file, only cson files can reference the base file):
 
-    ```
+```
     {
       name: @document.name
       description: @document.name
@@ -61,8 +62,8 @@ Templates are text files containing front-matter meta data and/or content that w
       date: new Date()
       length: @document.__content.length
     }
-    ```
-    
+```
+
 3. Templating a new file (this is a cson file, only cson files can call functions such as `Date()`):
 
     ```
@@ -79,9 +80,12 @@ Templates are text files containing front-matter meta data and/or content that w
 ## Try out a live example now
 
 <a href="https://runnable.com/UfNdIppQJxBgAAKk/using-hypercubed-frontman" target="_blank"><img src="https://runnable.com/external/styles/assets/runnablebtn.png" style="width:67px;height:25px;"></a>
-
-
 # License
-MIT
 
+Copyright (c) 2013 Jayson Harshbarger
 
+[MIT License](http://en.wikipedia.org/wiki/MIT_License)
+
+# Acknowledgments
+
+Built using [generator-commader](https://github.com/Hypercubed/generator-commander).

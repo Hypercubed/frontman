@@ -1,16 +1,15 @@
 #!/usr/bin/env node
+'use strict';
 
 // node
 var path			= require('path');
 var fs = require('fs');
 var mkdirp = require('mkdirp');
+var program  = require('commander');
 
-var program  = require('autocmdr');
-
-// autocmdr plugins
-require('autocmdr/lib/logger.js')(program);
-require('autocmdr/lib/package.js')(program);
-require('autocmdr/lib/config.js')(program);
+require('autocmdr/lib/logger')(program);
+require('autocmdr/lib/package')(program);
+require('autocmdr/lib/config')(program);
 
 // Local
 var frontman = require('../lib/frontman.js');
@@ -29,12 +28,12 @@ program
 	;
 
 program
-	.on('*', function() {   // TODO* Move this
+	.on('*', function() {   // TODO: Move this
 
 		var files = program.args;  // TODO: glob each?
 
 		if (files.length < 1 ) // TODO: fix this
-			program.outputHelp();
+		program.outputHelp();
 
 		if (program.template)  // Read template once, but don't process yet
 			var template = frontman._readFile( path.join(process.cwd(), program.template));
@@ -93,6 +92,9 @@ program
 
 program.parse(process.argv);
 
-if (program.args.length < 1 )
-	program.outputHelp();
+if (program.args.length < 1 ) {
+    program.log.error('No file specified. See \''+program._name+' --help\'.');
+    program.outputHelp();
+    process.exit(1);
+}
 
