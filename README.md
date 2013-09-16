@@ -13,7 +13,7 @@ Warning... this is a work in progress.  The usage is changing rapidly.  I'm stil
 
 ## Install
 
-`npm install -g Hypercubed/frontman`
+`npm install -g frontman`
 
 ## Features and command line usage
 
