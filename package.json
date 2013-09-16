@@ -1,6 +1,6 @@
 {
   "name": "frontman",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Manage yaml frontmatter using cson from the command line",
   "main": "lib/frontman.js",
   "bin": {
