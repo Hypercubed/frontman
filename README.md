@@ -8,12 +8,9 @@ Frontman is supplied one or more filenames and an option template filename.  Eac
 
 Warning... this is a work in progress.  The usage is changing rapidly.  I'm still discovering new ways to use this.  Feedback is welcome.
 
-[![Gittip donate button](http://badgr.co/gittip/hypercubed.png)](https://www.gittip.com/hypercubed/ "Donate weekly to this project using Gittip")
-[![Paypal donate button](http://badgr.co/paypal/donate.png?bg=%23feb13d)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X7KYR6T9U2NHC "One time donation to this project using Paypal")
-
 ## Install
 
-`npm install -g Hypercubed/frontman`
+`npm install -g frontman`
 
 ## Features and command line usage
 
@@ -80,12 +77,14 @@ Templates are text files containing front-matter meta data and/or content that w
 ## Try out a live example now
 
 <a href="https://runnable.com/UfNdIppQJxBgAAKk/using-hypercubed-frontman" target="_blank"><img src="https://runnable.com/external/styles/assets/runnablebtn.png" style="width:67px;height:25px;"></a>
+
 # License
 
-Copyright (c) 2013 Jayson Harshbarger
+Copyright (c) 2013 Jayson Harshbarger [![Gittip donate button](http://badgr.co/gittip/hypercubed.png)](https://www.gittip.com/hypercubed/ "Donate weekly to this project using Gittip")
+[![Paypal donate button](http://badgr.co/paypal/donate.png?bg=%23feb13d)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X7KYR6T9U2NHC "One time donation to this project using Paypal")
 
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
 
 # Acknowledgments
 
-Built using [generator-commader](https://github.com/Hypercubed/generator-commander).
+Built using [generator-commader](https://github.com/Hypercubed/generator-commander) and [autocmdr](https://github.com/Hypercubed/autocmdr).
