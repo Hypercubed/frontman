@@ -51,7 +51,7 @@ Templates are text files containing front-matter meta data and/or content that w
     
 2. Modifying front matter (this is a cson file, only cson files can reference the base file):
 
-```
+    ```
     {
       name: @document.name
       description: @document.name
@@ -59,7 +59,7 @@ Templates are text files containing front-matter meta data and/or content that w
       date: new Date()
       length: @document.__content.length
     }
-```
+    ```
 
 3. Templating a new file (this is a cson file, only cson files can call functions such as `Date()`):
 
@@ -73,6 +73,9 @@ Templates are text files containing front-matter meta data and/or content that w
       __content: "Your content here"
     }
     ```
+    
+Other template examples:
+- [Drafting and publishing a blog post (in docpad)](https://gist.github.com/Hypercubed/6636741)
 
 ## Try out a live example now
 
